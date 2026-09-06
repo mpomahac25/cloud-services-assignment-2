@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Cloud Services Assignment 2</title>
+
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Cloud Services - Assignment 2</h1>
+            <p>By: Marko Pomahac</p>
+        </header>
+
+        <main>
+
+            <section>
+                <h2>1. What is serverless architecture?</h2>
+                <p>
+                    Serverless architecture is a type of cloud computing where application code can be run by developers without having to manage the servers executing it.
+                    All of the tasks related to managing the server, such as OS maintenance, resource allocation, etc. are handled by the cloud service provider.
+                </p>
+                <p> 
+                    An example of a service providing serverless architecture would be Supabase, which provides a database and the needed server-side resources for running it, 
+                    while also performing the required server-related maintenance. This saves a lot of time for developers, as you're mainly taking care of the database itself, 
+                    such as the data and tables, and don't have to worry about the other mentioned aspects.
+                </p>
+            </section>
+
+            <section>
+                <h2>2. App containers vs. OS virtualization for networked services</h2>
+                <p>
+                    In many cases, app containers are more feasible to use than full OS virtualization for networked services. This is mainly due to the fact that app containers
+                    share resources with the OS of the machine they are running on, while full OS virtualization would be running a full OS for each service. This means that app
+                    containers will be using fewer resources, allowing better utilization of the available hardware resources.
+                </p>
+                <p>
+                    A few very common examples of networked services which are well suited to run inside app containers are things like web servers, REST APIs, and other small 
+                    backend services such as authentication services or scheduled task services. 
+                </p>
+                <p> 
+                    OS virtualization makes sense in cases where the service requires a different OS to run properly, or when it requires stronger isolation, often times mainly 
+                    for security purposes. 
+                </p>
+            </section>
+
+            <section>
+                <h2>3. App containers vs. Microservices</h2>
+                <p>
+                    App containers and microservices might seem similar at first glance due to both being used for splitting larger applications/systems into smaller, more
+                    manageable parts. The important difference is that an application container is a way of packaging an application together with all of the files and dependencies 
+                    it needs in order to be able to easily run it anywhere, while a microservice is a small and mostly independent service used as a building block of other applications.
+                </p>
+                <p>
+                    An example would be an online shop which could be built as a single application and run inside of a single container with all of the dependencies it needs. While that 
+                    would work just fine, changing one part of the application would normally require a new version of the whole application to be deployed. The same app could instead be 
+                    built using a microservices architecture, where features such as authentication, orders and payments are separated into their own services. Each of those microservices 
+                    could then run inside its own container and be updated independently. For example, changes to the authentication service could be deployed without having to redeploy 
+                    the order or payment services.
+                </p>
+            </section>
+
+            <section>
+                <h2>4. Some information security risks of using third-party containers</h2>
+                <p>
+                    Since the code within a container is created and, more importantly, packaged by someone else, the security level of the container depends heavily on the person or group 
+                    that created it, as well as on how the container is configured and what permissions it is given. This opens the possibility of the creator(s) adding malicious code, which 
+                    could allow access to sensitive data if the container has the required permissions. Another possibility is that one or more dependencies are outdated and use a version 
+                    with known vulnerabilities, which can create potential attack vectors and could, depending on the container's permissions, even give access to unprotected data on the 
+                    machine running the container.
+                </p>
+                <p>
+                    This is why containers should ideally be downloaded from known and trusted sources. If that is not possible, containers from less known or less trusted sources should be 
+                    scanned for known vulnerabilities and suspicious contents using tools such as Docker Scout. Even after scanning, however, it may still be safer not to run a container if 
+                    its source cannot be trusted.
+                </p>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>Thank you for reading :)</p>
+        </footer>
+
+    </body>
+</html>
